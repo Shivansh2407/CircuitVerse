@@ -1,6 +1,7 @@
 // Function to create new circuit
 // Function creates button in tab, creates scope and switches to this circuit
 function newCircuit(name, id) {
+    static_name = "Circuit Name : ";
     name = name || prompt("Enter circuit name:");
     name = stripTags(name);
     if (!name) return;
@@ -10,7 +11,8 @@ function newCircuit(name, id) {
     globalScope = scope;
 
     $('.circuits').removeClass("current");
-    $('#tabsBar').append("<div class='circuits toolbarButton current' id='" + scope.id + "'>" + name + "</div>");
+    $('#tabsBar').append("<span class='circuits toolbarButton current ' id='staticname'>" + static_name + " </span>");
+    $('#tabsBar').append("<span class='circuits toolbarButton current ' id='" + scope.id + "'>" + name + "</span>");
     $('.circuits').click(function() {
         switchCircuit(this.id)
     });
